@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+bodyClass: is-article
+---
+{%- set n = notes[note] -%}
+{%- set slug = n.slug if n else "none" -%}
+{%- set minutes = content | readingTime -%}
+{%- set prevPost = collections.posts | getPreviousCollectionItem(page) -%}
+{%- set nextPost = collections.posts | getNextCollectionItem(page) -%}
+<article class="post post--{{ slug }}">
+  <header class="post-head">
+    <div class="wrap post-head__grid">
+      <div class="post-head__main">
+        {% if n %}
+        <a class="post-head__note" href="/?note={{ slug }}#stati">{% include "partials/mini-pyramid.njk" %}{{ n.single }}</a>
+        {% endif %}
+        <h1 class="post-title">{{ title }}</h1>
+        {% if description %}<p class="post-lede">{{ description }}</p>{% endif %}
+        <p class="post-meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | ruDate }}</time>, {{ minutes }} {{ minutes | plural("минута", "минуты", "минут") }} чтения</p>
+      </div>
+
+      {% if oil %}
+      <aside class="factsheet" aria-label="Паспорт масла">
+        <p class="factsheet__name">{{ oil }}</p>
+        {% if latin %}<p class="factsheet__latin" lang="la">{{ latin }}</p>{% endif %}
+        <dl class="factsheet__list">
+          {% if part %}<div><dt>Сырьё</dt><dd>{{ part }}</dd></div>{% endif %}
+          {% if method %}<div><dt>Способ получения</dt><dd>{{ method }}</dd></div>{% endif %}
+          {% if origin %}<div><dt>Где производят</dt><dd>{{ origin }}</dd></div>{% endif %}
+          {% if aroma %}<div><dt>Аромат</dt><dd>{{ aroma }}</dd></div>{% endif %}
+        </dl>
+      </aside>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="wrap post-body">
+    {% if image %}
+    <figure class="post-image">
+      <img src="{{ image }}" alt="{{ imageAlt }}">
+      {% if imageCaption %}<figcaption>{{ imageCaption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+
+    <aside class="caution">
+      <p>Эфирные масла — концентрированные вещества. Перед нанесением на кожу разбавьте масло и проверьте реакцию на небольшом участке. При беременности, хронических болезнях и для детей посоветуйтесь с врачом.</p>
+    </aside>
+
+    {% if prevPost or nextPost %}
+    <nav class="post-nav" aria-label="Другие статьи">
+      {% if prevPost %}<a class="post-nav__link" href="{{ prevPost.url }}" rel="prev"><span>Предыдущая статья</span>{{ prevPost.data.title }}</a>{% endif %}
+      {% if nextPost %}<a class="post-nav__link post-nav__link--next" href="{{ nextPost.url }}" rel="next"><span>Следующая статья</span>{{ nextPost.data.title }}</a>{% endif %}
+    </nav>
+    {% endif %}
+  </div>
+</article>

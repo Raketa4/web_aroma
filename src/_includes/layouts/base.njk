@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="{% if oil %}article{% else %}website{% endif %}">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="{{ site.title }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="{{ bodyClass }}">
+  <a class="skip" href="#main">Перейти к содержанию</a>
+
+  <header class="site-head">
+    <div class="wrap site-head__row">
+      <a class="logo" href="/">
+        <svg class="logo__drop" viewBox="0 0 20 28" aria-hidden="true"><path d="M10 1C10 1 2 12 2 18a8 8 0 0 0 16 0C18 12 10 1 10 1Z"/></svg>
+        {{ site.title }}
+      </a>
+      <nav class="site-nav" aria-label="Разделы сайта">
+        <a href="/#stati">Статьи</a>
+        <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>О сайте</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap site-foot__row">
+      <p>Статьи на сайте рассказывают о маслах и не заменяют консультацию врача.</p>
+      <p><a href="/feed.xml">Подписаться на новые статьи (RSS)</a></p>
+    </div>
+  </footer>
+</body>
+</html>

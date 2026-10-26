@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+title: Статьи об эфирных маслах
+bodyClass: is-home
+---
+{%- set posts = collections.posts | reverse -%}
+<section class="hero wrap">
+  <div class="hero__text">
+    <h1 class="hero__title">{{ site.title }}</h1>
+    <p class="hero__lede">{{ site.description }}</p>
+  </div>
+
+  <div class="pyramid">
+    <p class="pyramid__hint">Каждое масло звучит в своей ноте. Выберите ноту, чтобы увидеть статьи о маслах этой группы.</p>
+    <div class="pyramid__tiers">
+      <svg class="pyramid__drop" viewBox="0 0 20 28" aria-hidden="true"><path d="M10 1C10 1 2 12 2 18a8 8 0 0 0 16 0C18 12 10 1 10 1Z"/></svg>
+      {%- for key, n in notes %}
+      {%- set count = (posts | byNote(key)).length %}
+      <button type="button" class="tier tier--{{ n.slug }}" data-filter="{{ n.slug }}" data-name="{{ n.name }}" aria-pressed="false">
+        <span class="tier__shape" aria-hidden="true"></span>
+        <span class="tier__text">
+          <span class="tier__name">{{ n.name }}</span>
+          <span class="tier__hint">{{ n.hint }}</span>
+        </span>
+        <span class="tier__count"><span class="sr-only">статей: </span>{{ count }}</span>
+      </button>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="list wrap" id="stati" aria-labelledby="list-title">
+  <div class="list__head">
+    <h2 class="list__title" id="list-title" aria-live="polite">Все статьи</h2>
+    <button type="button" class="list__reset" data-filter-reset hidden>Показать все статьи</button>
+  </div>
+
+  {% if posts.length %}
+  <div class="labels">
+    {%- for post in posts %}
+    {% include "partials/label.njk" %}
+    {%- endfor %}
+  </div>
+  {% endif %}
+  <p class="list__empty" id="list-empty"{% if posts.length %} hidden{% endif %}>Здесь пока нет статей.</p>
+</section>
+
+<script src="/assets/js/filter.js" defer></script>
