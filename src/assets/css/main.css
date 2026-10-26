@@ -20,6 +20,7 @@
   --tint-heart: #e6e1ef;
   --tint-base: #ece0d6;
   --tint-none: #e2e5dc;
+  --tint-basics: #dde8e1;
 
   --serif: "Literata", "Georgia", "Times New Roman", serif;
   --wrap: 72rem;
@@ -45,6 +46,7 @@
     --tint-heart: #27233a;
     --tint-base: #2d221d;
     --tint-none: #24222a;
+    --tint-basics: #1f2925;
   }
 }
 
@@ -66,6 +68,7 @@
   --tint-heart: #27233a;
   --tint-base: #2d221d;
   --tint-none: #24222a;
+  --tint-basics: #1f2925;
 }
 
 @media (min-width: 40rem) {
@@ -312,7 +315,25 @@ a:hover { text-decoration-thickness: 2px; }
 .tier:hover .tier__name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
 .tier:focus-visible { outline-offset: 4px; }
 
-.pyramid[data-active] .tier[aria-pressed="false"] .tier__shape { opacity: 0.25; }
+/* «Основы» — отдельная кнопка под пирамидой: статьи, которые не относятся к одной ноте */
+.tier--basics {
+  --c: var(--leaf);
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.tier__icon {
+  display: flex;
+  justify-content: center;
+}
+.tier__icon svg {
+  width: 1.25rem;
+  fill: var(--c);
+  transition: opacity 0.25s ease;
+}
+
+.pyramid[data-active] .tier[aria-pressed="false"] .tier__shape,
+.pyramid[data-active] .tier[aria-pressed="false"] .tier__icon svg { opacity: 0.25; }
 .pyramid[data-active] .tier[aria-pressed="false"] .tier__text,
 .pyramid[data-active] .tier[aria-pressed="false"] .tier__count { opacity: 0.6; }
 .tier[aria-pressed="true"] .tier__name { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
@@ -380,6 +401,7 @@ a:hover { text-decoration-thickness: 2px; }
 .label--top   { --c: var(--top); }
 .label--heart { --c: var(--heart); }
 .label--base  { --c: var(--base); }
+.label--basics { --c: var(--leaf); }
 
 /* Вторая, внутренняя рамка — как на аптечной этикетке */
 .label::before {
@@ -457,6 +479,7 @@ a:hover { text-decoration-thickness: 2px; }
 .post--top   { --c: var(--top);   --tint: var(--tint-top); }
 .post--heart { --c: var(--heart); --tint: var(--tint-heart); }
 .post--base  { --c: var(--base);  --tint: var(--tint-base); }
+.post--basics { --c: var(--leaf); --tint: var(--tint-basics); }
 
 .post-head {
   background: var(--tint);
@@ -640,6 +663,22 @@ a:hover { text-decoration-thickness: 2px; }
   padding: 0.1em 0.3em;
   background: var(--label);
 }
+
+/* Список литературы в конце статьи */
+.sources {
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  hyphens: manual;
+}
+.sources h2 {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+}
+.sources li { margin-bottom: 0.5em; }
 
 .caution {
   max-width: 40rem;

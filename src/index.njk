@@ -14,7 +14,7 @@ bodyClass: is-home
     <p class="pyramid__hint">Каждое масло звучит в своей ноте. Выберите ноту, чтобы увидеть статьи о маслах этой группы.</p>
     <div class="pyramid__tiers">
       <svg class="pyramid__drop" viewBox="0 0 20 28" aria-hidden="true"><path d="M10 1C10 1 2 12 2 18a8 8 0 0 0 16 0C18 12 10 1 10 1Z"/></svg>
-      {%- for key, n in notes %}
+      {%- for key, n in notes %}{% if n.tier %}
       {%- set count = (posts | byNote(key)).length %}
       <button type="button" class="tier tier--{{ n.slug }}" data-filter="{{ n.slug }}" data-name="{{ n.name }}" aria-pressed="false">
         <span class="tier__shape" aria-hidden="true"></span>
@@ -24,8 +24,18 @@ bodyClass: is-home
         </span>
         <span class="tier__count"><span class="sr-only">статей: </span>{{ count }}</span>
       </button>
-      {%- endfor %}
+      {%- endif %}{% endfor %}
     </div>
+
+    {%- set basics = notes["основы"] %}
+    <button type="button" class="tier tier--basics" data-filter="{{ basics.slug }}" data-name="{{ basics.name }}" aria-pressed="false">
+      <span class="tier__icon" aria-hidden="true"><svg viewBox="0 0 20 28"><path d="M10 1C10 1 2 12 2 18a8 8 0 0 0 16 0C18 12 10 1 10 1Z"/></svg></span>
+      <span class="tier__text">
+        <span class="tier__name">{{ basics.name }}</span>
+        <span class="tier__hint">{{ basics.hint }}</span>
+      </span>
+      <span class="tier__count"><span class="sr-only">статей: </span>{{ (posts | byNote("основы")).length }}</span>
+    </button>
   </div>
 </section>
 
