@@ -66,9 +66,19 @@ note: основы
 
 ## Ванна
 
-Масло не растворяется в воде. Капли, добавленные в ванну, собираются на поверхности плёнкой и попадают на кожу почти неразбавленными. Морская соль масло не растворяет, хотя её часто рекомендуют как «основу».
+Масло не растворяется в воде. Капли, добавленные в ванну, собираются на поверхности плёнкой и попадают на кожу почти неразбавленными. Тёплая вода не даёт маслу быстро испариться, поэтому такие ванны часто щиплют.
 
-Перед добавлением в воду смешайте масло с эмульгатором — полисорбатом, солюбилизатором, жирными сливками или жидким мылом. Обычно достаточно 4–6 капель на ванну. Масла, раздражающие кожу (корица, гвоздика, тимьян, орегано, мята), в ванну не добавляют.
+Популярные «основы» эту проблему не решают. Морская и английская соль, сода растворяются в воде, а масло всплывает. Молоко и сливки дают лишь временную эмульсию — масло всё равно оказывается на поверхности. Глицерин, водка и гель алоэ тоже не удерживают масло в воде.
+
+Перед добавлением в воду смешайте масло с диспергатором:
+
+- **полисорбат 20** — в равном количестве с эфирным маслом;
+- **гель для душа, жидкое мыло или детский шампунь без отдушки** — 1 столовая ложка;
+- **специальный солюбилизатор** (например, Solubol) — по инструкции производителя.
+
+Растительное масло, строго говоря, не диспергирует: оно тоже всплывает, и ванна становится жирной и скользкой. Но эфирное масло в нём хотя бы разбавлено.
+
+Tisserand Institute называет диапазон 5–20 капель на ванну; для первого раза хватит 5–6. Масла, раздражающие кожу (корица, гвоздика, тимьян, орегано, мята), в ванну не добавляют.
 
 ## Диффузор
 
@@ -94,6 +104,7 @@ note: основы
 
 - Tisserand R., Young R. *Essential Oil Safety: A Guide for Health Care Professionals*, 2nd ed. Churchill Livingstone, 2014.
 - WHO. *WHO Monographs on Selected Medicinal Plants*, Vol. 2: Aetheroleum Eucalypti, 2002.
+- Tisserand Institute. [Bath Safety: how to use essential oils safely in the bath](https://tisserandinstitute.org/safety/bath-safety/); [Bath safety II: Dispersing essential oils](https://tisserandinstitute.org/learn-more/dispersing-essential-oils/).
 - Matura M. et al. Oxidized citrus oil (R-limonene): a frequent skin sensitizer in Europe. *J Am Acad Dermatol*, 2002, 47(5): 709–714.
 - Christensson J. B. et al. Linalool — a significant contact sensitizer after air exposure. *Contact Dermatitis*, 2010, 62(1): 32–41.
 - «Аромат Науки»: [Как использовать эфирные масла, советы новичкам](https://aromatnauki.ru/articles/how-to-use-essential-oils); карточки [бергамота](https://aromatnauki.ru/products/citrus-bergamia2), [иланг-иланга](https://aromatnauki.ru/products/ylang-ylang-extra), [мяты перечной](https://aromatnauki.ru/products/mentha-piperita).
