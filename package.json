@@ -2,7 +2,7 @@
   "name": "web_aroma",
   "version": "1.0.0",
   "private": true,
-  "description": "Ароматека — статьи об эфирных маслах",
+  "description": "Эфирика — статьи об эфирных маслах",
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",

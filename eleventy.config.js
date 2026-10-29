@@ -21,10 +21,10 @@ export default function (eleventyConfig) {
     collection: { name: "posts", limit: 20 },
     metadata: {
       language: "ru",
-      title: "Ароматека",
+      title: "Эфирика",
       subtitle: "Статьи об эфирных маслах",
       base: process.env.SITE_URL || "http://localhost:8080/",
-      author: { name: "Ароматека" },
+      author: { name: "Эфирика" },
     },
   });
 
