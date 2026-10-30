@@ -15,6 +15,8 @@ const siteUrl = process.env.SITE_URL || "http://localhost:8080/";
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+  // Файлы подтверждения Яндекс Вебмастера и Google Search Console — в корень сайта как есть
+  eleventyConfig.addPassthroughCopy({ static: "/" });
 
   // Подставляет префикс пути (/web_aroma/) во все ссылки при сборке для GitHub Pages
   eleventyConfig.addPlugin(HtmlBasePlugin);
