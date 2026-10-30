@@ -1,0 +1,83 @@
+<!doctype html>
+<!--
+  Исходник картинки для превью ссылок (src/assets/og-image.png, 1200×630).
+  Пересобрать после правки (из папки web_aroma):
+  "C:/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --hide-scrollbars --window-size=1200,630 --virtual-time-budget=8000 --screenshot=src/assets/og-image.png templates/og-image.html
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300..500&display=block">
+<style>
+  :root {
+    --paper: #ebeee6;
+    --ink: #2a2131;
+    --ink-soft: #5c5563;
+    --rule: #c6c9bd;
+    --top: #c49422;
+    --heart: #8b76b8;
+    --base: #85502f;
+  }
+  html, body { margin: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Literata", Georgia, serif;
+  }
+  .card {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 72px 96px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 72px;
+    align-items: center;
+  }
+  .title {
+    margin: 0;
+    font-size: 138px;
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+  .lede {
+    margin: 28px 0 0;
+    font-size: 44px;
+    line-height: 1.35;
+    color: var(--ink-soft);
+  }
+  .domain {
+    margin: 56px 0 0;
+    padding-top: 22px;
+    border-top: 2px solid var(--rule);
+    font-size: 26px;
+    color: var(--ink-soft);
+  }
+  /* Пирамида нот как на главной: ярусы режутся из одного треугольника */
+  .pyramid { position: relative; display: grid; gap: 5px; margin-top: 72px; }
+  .tier { height: 92px; }
+  .tier--top   { background: var(--top);   clip-path: polygon(50% 0, 66.67% 100%, 33.33% 100%); }
+  .tier--heart { background: var(--heart); clip-path: polygon(33.33% 0, 66.67% 0, 83.33% 100%, 16.67% 100%); }
+  .tier--base  { background: var(--base);  clip-path: polygon(16.67% 0, 83.33% 0, 100% 100%, 0 100%); }
+  .drop { position: absolute; left: calc(50% - 14px); top: -70px; width: 28px; fill: var(--top); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="text">
+      <h1 class="title">Эфирика</h1>
+      <p class="lede">Статьи об эфирных маслах</p>
+      <p class="domain">эфирика.рф</p>
+    </div>
+    <div class="pyramid" aria-hidden="true">
+      <svg class="drop" viewBox="0 0 20 28"><path d="M10 1C10 1 2 12 2 18a8 8 0 0 0 16 0C18 12 10 1 10 1Z"/></svg>
+      <div class="tier tier--top"></div>
+      <div class="tier tier--heart"></div>
+      <div class="tier tier--base"></div>
+    </div>
+  </div>
+</body>
+</html>

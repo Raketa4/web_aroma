@@ -9,8 +9,12 @@ const ruDate = new Intl.DateTimeFormat("ru-RU", {
 });
 const ruPlural = new Intl.PluralRules("ru-RU");
 
+// Адрес сайта с префиксом пути, при сборке на GitHub его передаёт deploy.yml
+const siteUrl = process.env.SITE_URL || "http://localhost:8080/";
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   // Подставляет префикс пути (/web_aroma/) во все ссылки при сборке для GitHub Pages
   eleventyConfig.addPlugin(HtmlBasePlugin);
@@ -23,7 +27,7 @@ export default function (eleventyConfig) {
       language: "ru",
       title: "Эфирика",
       subtitle: "Статьи об эфирных маслах",
-      base: process.env.SITE_URL || "http://localhost:8080/",
+      base: siteUrl,
       author: { name: "Эфирика" },
     },
   });
@@ -42,6 +46,8 @@ export default function (eleventyConfig) {
   // «26 октября 2026» без «г.» в конце
   eleventyConfig.addFilter("ruDate", (date) => ruDate.format(date).replace(/\s*г\.$/, ""));
   eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
+  // Полный адрес для превью ссылок: мессенджеры не понимают адреса от корня вроде /stati/lavanda/
+  eleventyConfig.addFilter("fullUrl", (url) => new URL(url.replace(/^\//, ""), siteUrl).href);
   eleventyConfig.addFilter("byNote", (posts, note) => posts.filter((p) => p.data.note === note));
 
   // «1 минута», «3 минуты», «5 минут»
