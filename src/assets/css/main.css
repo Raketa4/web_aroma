@@ -146,9 +146,10 @@ a:hover { text-decoration-thickness: 2px; }
 
 .site-head__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
   padding-block: 1.25rem;
 }
 
@@ -164,10 +165,15 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .logo__drop { width: 0.8rem; fill: var(--top); }
 
-.site-nav { display: flex; gap: 1.5rem; }
+/* На узком экране меню целиком переносится под логотип, пункты не разрываются */
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+@media (min-width: 40rem) {
+  .site-nav { gap: 1.5rem; }
+}
 .site-nav a {
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
@@ -595,6 +601,18 @@ a:hover { text-decoration-thickness: 2px; }
 }
 
 .prose > :first-child { margin-top: 0; }
+
+/* Кнопка-ссылка, например «Перейти к курсу» на странице «Обучение» */
+.prose a.cta {
+  display: inline-block;
+  margin: 0.25em 0 1.25em;
+  padding: 0.7em 1.3em;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 500;
+}
+.prose a.cta:hover { background: var(--leaf); }
 
 .prose p,
 .prose ul,
